@@ -16,7 +16,7 @@ class CreateUsuariosTable extends Migration
         Schema::create('usuarios', function (Blueprint $table) {
             $table->id('id');
             $table->integer('legajo');
-            $table->string('id',45);
+            $table->string('apellido',45);
             $table->string('nombreUsuario',30);
             $table->string('contrasenaUsuario',45);
             $table->date('fechaNacimineto');
@@ -24,7 +24,14 @@ class CreateUsuariosTable extends Migration
             $table->string('correoElectronico',45);
             $table->bigInteger('numeroDocumento');
             $table->tinyInteger('estadoBaja');
-            $table->timestamps();
+            $table->timestamps('');
+            $table->foreignId('cargo_id');
+            $table->foreignId('localidad_id');
+            $table->foreignId('tipoDocumento_id');
+            $table->foreignId('tipoUsuario_id');
+            $table->foreignId('rol_id');
+            $table->foreignId('genero_id');
+
         });
     }
 

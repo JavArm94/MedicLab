@@ -4,10 +4,8 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateLocalidadsTable extends Migration
-{   
-
-    protected $table = 'Localidad';
+class CreateGenerosTable extends Migration
+{
     /**
      * Run the migrations.
      *
@@ -15,9 +13,8 @@ class CreateLocalidadsTable extends Migration
      */
     public function up()
     {
-        Schema::create('localidads', function (Blueprint $table) {
-            $table->id('id');
-            $table->string('nombreLocalidad');
+        Schema::create('generos', function (Blueprint $table) {
+            $table->id();
             $table->timestamps();
         });
     }
@@ -29,6 +26,6 @@ class CreateLocalidadsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('localidads');
+        Schema::dropIfExists('generos');
     }
 }
