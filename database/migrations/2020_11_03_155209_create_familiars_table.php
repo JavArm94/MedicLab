@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Schema;
 class CreateFamiliarsTable extends Migration
 {
     /**
-     * Run the migrations.
+     * Run the migrations. ! Familiares
      *
      * @return void
      */
