@@ -25,7 +25,7 @@ class CreateUsersTable extends Migration
     }
 
     /**
-     * Reverse the migrations.
+     * Revierte las migraciones.
      *
      * @return void
      */
