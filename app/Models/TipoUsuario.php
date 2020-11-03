@@ -12,4 +12,8 @@ class TipoUsuario extends Model
     public function idUsuario(){
         return $this->hasMany(Usuario::class);
     }
+
+    public function idNofificacion(){
+        return $this->hasMany(Nofificacion::class);
+    }
 }

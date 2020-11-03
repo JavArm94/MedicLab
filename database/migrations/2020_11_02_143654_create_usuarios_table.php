@@ -30,6 +30,7 @@ class CreateUsuariosTable extends Migration
             $table->foreignId('idCargo');
             $table->foreignId('idLocalidad');
             $table->foreignId('idTipoDocumento');
+            $table->foreignId('idTipoUsuario');
             $table->foreignId('idRol');
             $table->foreignId('idGenero');
             
