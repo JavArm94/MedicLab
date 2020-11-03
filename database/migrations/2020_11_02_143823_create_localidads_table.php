@@ -7,7 +7,6 @@ use Illuminate\Support\Facades\Schema;
 class CreateLocalidadsTable extends Migration
 {   
 
-    protected $table = 'Localidad';
     /**
      * Run the migrations.
      *
@@ -15,7 +14,7 @@ class CreateLocalidadsTable extends Migration
      */
     public function up()
     {
-        Schema::create('localidads', function (Blueprint $table) {
+        Schema::create('localidad', function (Blueprint $table) {
             $table->id('id');
             $table->string('nombreLocalidad');
             
@@ -30,6 +29,6 @@ class CreateLocalidadsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('localidads');
+        Schema::dropIfExists('localidad');
     }
 }
