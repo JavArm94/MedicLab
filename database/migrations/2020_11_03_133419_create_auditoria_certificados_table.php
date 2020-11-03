@@ -16,7 +16,7 @@ class CreateAuditoriaCertificadosTable extends Migration
         Schema::create('auditoria_certificados', function (Blueprint $table) {
             $table->id('id');
             $table->date('fechaModificacion');
-            $table->time('fechaModificacion');
+            $table->time('horaModificacion');
             $table->string('tipoModificacion',1);
             $table->integer('diasDeAusencia');
             $table->bigInteger('numeroComprobante');
