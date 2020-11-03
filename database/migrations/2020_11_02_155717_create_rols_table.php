@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Schema;
 class CreateRolsTable extends Migration
 {
     /**
-     * Run the migrations.
+     * Run the migrations. Quedó como rols en vez de roles !
      *
      * @return void
      */
