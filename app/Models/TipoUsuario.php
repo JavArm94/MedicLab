@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class TipoUsuario extends Model
 {
     use HasFactory;
+  
+    public function idUsuario(){
+        return $this->hasMany(Usuario::class);
+    }
 }

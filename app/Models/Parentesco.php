@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Parentesco extends Model
 {
     use HasFactory;
+
+    public function idFamiliar(){
+        return $this->hasMany(Familiar::class);
+    }
 }

@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Patologia extends Model
 {
     use HasFactory;
+
+    public function idAuditoriaCertificado(){
+        return $this->hasMany(AuditoriaCertificado::class);
+    }
 }

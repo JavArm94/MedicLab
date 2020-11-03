@@ -8,4 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class Genero extends Model
 {
     use HasFactory;
+
+    public function idUsuario(){
+        return $this->hasMany(Usuario::class);
+    }
+
+    public function idFamiliar(){
+        return $this->hasMany(Familiar::class);
+    }
 }
