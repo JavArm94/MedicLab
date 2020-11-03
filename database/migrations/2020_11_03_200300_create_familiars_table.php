@@ -13,7 +13,7 @@ class CreateFamiliarsTable extends Migration
      */
     public function up()
     {
-        Schema::create('familiars', function (Blueprint $table) {
+        Schema::create('familiares', function (Blueprint $table) {
             $table->id('id');
             $table->string('apellido',45);
             $table->string('nombres',45);
@@ -21,9 +21,9 @@ class CreateFamiliarsTable extends Migration
                         
             $table->timestamps();
 
-            $table->foreignId('idUsuario');
-            $table->foreignId('idParentesco');
-            $table->foreignId('idGenero');
+            $table->foreignId('idUsuario')->references('id')->on('usuarios')->onDelete('cascade');
+            $table->foreignId('idParentesco')->references('id')->on('parentescos');
+            $table->foreignId('idGenero')->references('id')->on('generos');
         });
     }
 
@@ -34,6 +34,6 @@ class CreateFamiliarsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('familiars');
+        Schema::dropIfExists('familiares');
     }
 }
