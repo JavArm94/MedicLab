@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateRolsTable extends Migration
+class CreateNotificacionCertificadosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,13 @@ class CreateRolsTable extends Migration
      */
     public function up()
     {
-        Schema::create('rols', function (Blueprint $table) {
+        Schema::create('notificacion_certificados', function (Blueprint $table) {
             $table->id('id');
-            $table->string('nombreRol',45);
+            
             $table->timestamps();
+
+            $table->foreignId('idCertificado');    
+            $table->foreignId('idNotificacion');
         });
     }
 
@@ -27,6 +30,6 @@ class CreateRolsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('rols');
+        Schema::dropIfExists('notificacion_certificados');
     }
 }

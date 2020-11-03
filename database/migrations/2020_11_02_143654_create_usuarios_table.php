@@ -24,12 +24,14 @@ class CreateUsuariosTable extends Migration
             $table->string('correoElectronico',45);
             $table->bigInteger('numeroDocumento');
             $table->tinyInteger('estadoBaja');
+            
             $table->timestamps('');
+
             $table->foreignId('idCargo');
-            $table->foreignId('localidad_id');
-            $table->foreignId('tipoDocumento_id');
-            $table->foreignId('tipoUsuario_id');
-            $table->foreignId('rol_id');
+            $table->foreignId('idLocalidad');
+            $table->foreignId('idTipoDocumento');
+            $table->foreignId('idRol');
+            $table->foreignId('idGenero');
             
 
         });
