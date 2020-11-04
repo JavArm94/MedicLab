@@ -10,10 +10,10 @@ class TipoUsuario extends Model
     use HasFactory;
   
     public function idUsuario(){
-        return $this->hasMany(Usuario::class);
+        return $this->hasMany(Usuario::class,'idUsuario');
     }
 
-    public function idNofificacion(){
-        return $this->hasMany(Nofificacion::class);
+    public function idNotificacion(){
+        return $this->hasMany(Nofificacion::class,'idNotificacion');
     }
 }

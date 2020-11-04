@@ -25,11 +25,11 @@ class CreateCertificadosTable extends Migration
 
             $table->timestamps();
 
-            $table->foreignId('idUsuarioCertificado');
-            $table->foreignId('idPatologia');
-            $table->foreignId('idMedico');
-            $table->foreignId('idTipoCertificado');
-            $table->foreignId('idFamiliar')->nullable(); 
+            $table->foreignId('idUsuarioCertificado')->references('id')->on('usuarios');
+            $table->foreignId('idPatologia')->references('id')->on('patologias');
+            $table->foreignId('idMedico')->references('id')->on('medicos');
+            $table->foreignId('idTipoCertificado')->references('id')->on('tipo_certificados');
+            $table->foreignId('idFamiliar')->nullable()->references('id')->on('familiares'); 
         });
     }
 

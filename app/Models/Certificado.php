@@ -10,30 +10,30 @@ class Certificado extends Model
     use HasFactory;
 
     public function idAuditoriaCertificado(){
-        return $this->hasMany(AuditoriaCertificado::class);
+        return $this->hasMany(AuditoriaCertificado::class,'idAuditoriaCertificado');
     }
 
     public function idNotificacionCertificado(){
-        return $this->hasMany(NotificacionCertificado::class);
+        return $this->hasMany(NotificacionCertificado::class,'idNotificacion');
     }
 
     public function idTipoCertificado(){
-        return $this->belongsTo(TipoCertificado::class);
+        return $this->belongsTo(TipoCertificado::class,'idTipoCertificado');
     }
 
     public function idMedico(){
-        return $this->belongsTo(Medico::class);
+        return $this->belongsTo(Medico::class,'idMedico');
     }
 
     public function idPatologia(){
-        return $this->belongsTo(Patologia::class);
+        return $this->belongsTo(Patologia::class,'idPatologia');
     }
 
     public function idUsuario(){
-        return $this->belongsTo(Usuario::class);
+        return $this->belongsTo(Usuario::class,'idUsuario');
     }
 
     public function idFamiliar(){
-        return $this->belongsTo(Familiar::class);
+        return $this->belongsTo(Familiar::class,'idFamiliar');
     }
 }

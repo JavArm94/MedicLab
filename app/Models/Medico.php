@@ -10,6 +10,6 @@ class Medico extends Model
     use HasFactory;
 
     public function idAuditoriaCertificado(){
-        return $this->hasMany(AuditoriaCertificado::class);
+        return $this->hasMany(AuditoriaCertificado::class,'idMedico');
     }
 }

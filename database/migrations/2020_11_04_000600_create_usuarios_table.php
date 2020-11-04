@@ -27,12 +27,12 @@ class CreateUsuariosTable extends Migration
             
             $table->timestamps('');
 
-            $table->foreignId('idCargo');
-            $table->foreignId('idLocalidad');
-            $table->foreignId('idTipoDocumento');
-            $table->foreignId('idTipoUsuario');
-            $table->foreignId('idRol');
-            $table->foreignId('idGenero');
+            $table->foreignId('idCargo')->references('id')->on('cargos');
+            $table->foreignId('idLocalidad')->references('id')->on('localidades');
+            $table->foreignId('idTipoDocumento')->references('id')->on('tipo_documentos');
+            $table->foreignId('idTipoUsuario')->references('id')->on('tipo_usuarios');
+            $table->foreignId('idRol')->references('id')->on('roles');
+            $table->foreignId('idGenero')->references('id')->on('generos');
             
 
         });

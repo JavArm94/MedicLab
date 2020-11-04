@@ -10,6 +10,6 @@ class TipoDocumento extends Model
     use HasFactory;
 
     public function idUsuario(){
-        return $this->hasMany(Usuario::class);
+        return $this->hasMany(Usuario::class,'idUsuario');
     }
 }

@@ -10,6 +10,6 @@ class Parentesco extends Model
     use HasFactory;
 
     public function idFamiliar(){
-        return $this->hasMany(Familiar::class);
+        return $this->hasMany(Familiar::class,'idFamiliar');
     }
 }

@@ -10,11 +10,11 @@ class NotificacionCertificado extends Model
     use HasFactory;
 
     public function idNotificacion(){
-        return $this->belongsTo(Notificacion::class);
+        return $this->belongsTo(Notificacion::class,'idNotificacion');
     }
 
     public function idCertificado(){
-        return $this->belongsTo(Certificado::class);
+        return $this->belongsTo(Certificado::class,'idCertificado');
     }
     
 }

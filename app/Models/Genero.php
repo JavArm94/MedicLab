@@ -10,10 +10,10 @@ class Genero extends Model
     use HasFactory;
 
     public function idUsuario(){
-        return $this->hasMany(Usuario::class);
+        return $this->hasMany(Usuario::class,'idUsuario');
     }
 
     public function idFamiliar(){
-        return $this->hasMany(Familiar::class);
+        return $this->hasMany(Familiar::class,'idFamiliar');
     }
 }

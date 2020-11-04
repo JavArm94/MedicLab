@@ -18,8 +18,8 @@ class CreateNotificacionCertificadosTable extends Migration
             
             $table->timestamps();
 
-            $table->foreignId('idCertificado');    
-            $table->foreignId('idNotificacion');
+            $table->foreignId('idCertificado')->references('id')->on('certificados');    
+            $table->foreignId('idNotificacion')->references('id')->on('notificaciones');
         });
     }
 

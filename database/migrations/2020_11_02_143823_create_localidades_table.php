@@ -4,18 +4,20 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateRolsTable extends Migration
-{
+class CreateLocalidadesTable extends Migration
+{   
+
     /**
-     * Run the migrations. Quedó como rols en vez de roles .
+     * Run the migrations.
      *
      * @return void
      */
     public function up()
     {
-        Schema::create('rols', function (Blueprint $table) {
+        Schema::create('localidades', function (Blueprint $table) {
             $table->id('id');
-            $table->string('nombreRol',45);
+            $table->string('nombreLocalidad');
+            
             $table->timestamps();
         });
     }
@@ -27,6 +29,6 @@ class CreateRolsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('rols');
+        Schema::dropIfExists('localidades');
     }
 }
