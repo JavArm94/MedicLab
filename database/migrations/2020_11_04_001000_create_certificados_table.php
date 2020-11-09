@@ -21,7 +21,7 @@ class CreateCertificadosTable extends Migration
             $table->date('fechaVencimiento');
             $table->date('fechaCertificado');
             $table->binary('imagen')->nullable();
-            $table->enum('estadoCerficado',['Pendiente','Justificado','Injustificado','Vencido','Finalizado']);
+            $table->enum('estadoCertificado',['Pendiente','Justificado','Injustificado','Vencido','Finalizado']);
 
             $table->timestamps();
 

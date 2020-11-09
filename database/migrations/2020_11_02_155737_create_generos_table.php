@@ -18,6 +18,7 @@ class CreateGenerosTable extends Migration
             $table->string('genero',30);
 
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
