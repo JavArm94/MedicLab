@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>{{ config('app.name') }}</title>
 
-    <link rel="stylesheet" href="css/login/login.css">
+    <link rel="stylesheet" href="css/login.css">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -16,10 +16,7 @@
 
 </head>
 <body class="hold-transition login-page">
-    <nav class="navbar">
-        <a class="navbar-brand" href="{{ url('/home') }}">
-           MedicLab </a> <hr> <p>Sistema de gestión médica</p> 
-    </nav>
+    @include('navbar')    
     <div class="front-image">
        <p>Seguimiento de la salud de <br>
         nuestros empleados gracias<br>
@@ -39,23 +36,23 @@
             @csrf
 
            <p class="bold-text"> Usuario</p>
-            <div class="form-group has-feedback {{ $errors->has('email') ? ' has-error' : '' }}">
-                <input type="email" class="form-control" name="email" value="{{ old('email') }}" placeholder="Legajo o email">
+            <div class="form-group has-feedback {{ $errors->has('correoElectronico') ? ' has-error' : '' }}">
+                <input type="email" class="form-control" name="correoElectronico" value="{{ old('correoElectronico') }}" placeholder="Legajo o correo">
                 <br><span class="glyphicon glyphicon-envelope form-control-feedback"></span>
-                @if ($errors->has('email'))
+                @if ($errors->has('correoElectronico'))
                     <span class="help-block">
-                    <strong>{{ $errors->first('email') }}</strong>
+                    <strong>{{ $errors->first('correoElectronico') }}</strong>
                 </span>
                 @endif
             </div>
             <br>
           <p class="bold-text"> Contraseña</p> 
-            <div class="form-group has-feedback{{ $errors->has('password') ? ' has-error' : '' }}">
-                <input type="password" class="form-control" placeholder="Password" name="password">
+            <div class="form-group has-feedback{{ $errors->has('contrasenaUsuario') ? ' has-error' : '' }}">
+                <input type="password" class="form-control" placeholder="contrasenaUsuario" name="contrasenaUsuario">
                 <br><span class="glyphicon glyphicon-lock form-control-feedback"></span>
-                @if ($errors->has('password'))
-                    <span class="help-block">
-                    <strong>{{ $errors->first('password') }}</strong>
+                @if ($errors->has('contrasenaUsuario'))
+                    <span class="help-block">   
+                    <strong>{{ $errors->first('contrasenaUsuario') }}</strong>
                 </span>
                 @endif
 
@@ -83,10 +80,8 @@
     </div>
     <!-- /.login-box-body -->
 </div>
+@include('footer')
 
-<div class="footer">
-    
-</div>
 <!-- /.login-box -->
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
