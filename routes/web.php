@@ -1,6 +1,9 @@
 <?php
 
+use App\Http\Livewire\Reportexmedico;
+
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UsuariosController;
 use App\Http\Controllers\TipoUsuarioController;
 /*
 |--------------------------------------------------------------------------
@@ -34,3 +37,14 @@ Route::resource('localidades', App\Http\Controllers\LocalidadController::class);
 Route::resource('parentescos', App\Http\Controllers\ParentescoController::class);
 
 Route::resource('medicos', App\Http\Controllers\MedicoController::class);
+
+Route::get('reportecertificados/{idusuario?}', [App\Http\Controllers\UsuariosController::class,'reportecertificados']);
+Route::get('reportemedico/{idmedico?}', [App\Http\Controllers\UsuariosController::class,'reportexmedicoblade'])->name('cortito');
+
+
+
+Route::get('usuarios', [App\Http\Controllers\UsuariosController::class,'index']);
+
+//Route::resource('certificados', App\Http\Controllers\UsuariosController::class);
+//Route::get('reportemedico/{idMedico?}', Reportexmedico::class);
+

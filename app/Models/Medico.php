@@ -57,6 +57,10 @@ class Medico extends Model
         'updated_at' => 'nullable'
     ];
 
+    public function getApellidoNombresAttribute()
+    {
+        return $this->apellido . ', ' . $this->nombres;
+    }
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      **/

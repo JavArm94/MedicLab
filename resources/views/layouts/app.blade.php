@@ -25,9 +25,16 @@
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.7.14/css/bootstrap-datetimepicker.min.css">
 
+    <link href="{{ asset('plugins/flatpickr/flatpickr.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ asset('plugins/flatpickr/material_red.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ asset('assets/css/elements/color_library.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('assets/css/users/user-profile.css') }}" rel="stylesheet" type="text/css" />
+
+
+
     @yield('css')
     <link rel="stylesheet" href="{{ asset('css/login.css')}}">
-    
+    @livewireStyles
 </head>
 
 <body class="skin-blue sidebar-mini">
@@ -53,7 +60,7 @@
 
         <!-- Main Footer -->
         <footer class="main-footer" style="max-height: 100px;text-align: center">
-            <strong>Copyright © 2020 <a href="#">Compañía</a>.</strong> Todos los derechos reservados.
+            <strong>Copyright © 2020 <a href="#">MedicLab</a>.</strong> Todos los derechos reservados.
         </footer>
 
     </div>
@@ -117,5 +124,39 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.5/js/select2.min.js"></script>
 
     @stack('scripts')
+    
+
+    <script src="{{ asset('assets/js/custom.js') }}"></script>
+    <script src="{{ asset('assets/js/toastr.min.js') }}"></script>
+    <script src="{{ asset('plugins/notification/snackbar/snackbar.min.js') }}"></script>
+    <script src="{{ asset('plugins/flatpickr/flatpickr.js') }}"></script>
+    <script src="{{ asset('plugins/flatpickr/flatpickr_es.js') }}"></script>
+    
+    
+    <script>
+        $(document).ready(function() {
+            App.init();
+            //OLD WAY
+            /*
+            $(".flatpickr").flatpickr({
+                enableTime: false,
+                dateFormat: "d-m-Y",
+                'locale': 'es'
+            });
+            */
+        });
+        //NEW WAY
+        $(document).on("focus", ".flatpickr", function() {
+           $(this).flatpickr({
+            enableTime: false,
+            dateFormat: "d-m-Y",
+            'locale': 'es'
+        });
+    
+       })
+    </script>
+
+ @livewireScripts 
+
 </body>
 </html>

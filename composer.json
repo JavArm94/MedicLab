@@ -9,16 +9,19 @@
     "license": "MIT",
     "require": {
         "php": "^7.3|^8.0",
+        "barryvdh/laravel-snappy": "^0.4.8",
+        "doctrine/dbal": "~2.3",
         "fideloper/proxy": "^4.4",
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^7.0.1",
+        "infyomlabs/adminlte-templates": "8.0.x-dev",
+        "infyomlabs/laravel-generator": "8.0.x-dev",
         "laravel/framework": "^8.12",
         "laravel/tinker": "^2.5",
         "laravel/ui": "^3.0",
-		"infyomlabs/laravel-generator": "8.0.x-dev",
-		"laravelcollective/html": "^6.2",
-		"infyomlabs/adminlte-templates": "8.0.x-dev",
-		"doctrine/dbal": "~2.3"
+        "laravelcollective/html": "^6.2",
+        "laraveles/spanish": "^1.5",
+        "livewire/livewire": "^2.3"
     },
     "require-dev": {
         "facade/ignition": "^2.5",
