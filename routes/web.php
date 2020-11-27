@@ -40,6 +40,7 @@ Route::resource('medicos', App\Http\Controllers\MedicoController::class);
 
 Route::get('reportecertificados/{idusuario?}', [App\Http\Controllers\UsuariosController::class,'reportecertificados']);
 Route::get('reportemedico/{idmedico?}', [App\Http\Controllers\UsuariosController::class,'reportexmedicoblade'])->name('cortito');
+Route::get('reporteausentismo', [App\Http\Controllers\UsuariosController::class,'reporteausentismo'])->name('ausentismo');
 
 
 

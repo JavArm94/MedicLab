@@ -2,8 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Certificado extends Model
 {
@@ -42,6 +43,12 @@ class Certificado extends Model
         return Certificado::estado($estado)->fechasCertificado($fecha_inicial, $fecha_final)->doctor($idmedico)->get(); //paginate(9);
     }
 
+    public static function certificadosFiltroAusentismo($fecha_inicial, $fecha_final)
+    {
+        return Certificado::fechasCertificadoAusentismo($fecha_inicial, $fecha_final)->get(); //paginate(9);
+    }
+
+
     public function scopeDoctor($query, $idmedico)
     {
              if (!empty($idmedico)){
@@ -50,14 +57,12 @@ class Certificado extends Model
             
     }
 
-
     public function scopeEstado($query, $estado)
     {
         if (!empty($estado)) {
             return $query->where('estadoCertificado', $estado);
         }
     }
-
 
     public function scopeFechasCertificado($query, $fecha_inicial, $fecha_final)
     {
@@ -68,5 +73,31 @@ class Certificado extends Model
         } elseif(empty($fecha_inicial) && !empty($fecha_final)) {
             return $query->where('fechaCertificado', '<=', $fecha_final);
         }
+    }
+
+    public function scopeFechasCertificadoAusentismo($query, $fecha_inicial, $fecha_final)
+    {
+        if (!empty($fecha_inicial) && !empty($fecha_final)) {
+            return $query->whereBetween('fechaCertificado', [$fecha_inicial, $fecha_final]);
+        } elseif (!empty($fecha_inicial) && empty($fecha_final)) {
+            return $query->where('fechaCertificado', '>=', $fecha_inicial);
+        } elseif(empty($fecha_inicial) && !empty($fecha_final)) {
+            return $query->where('fechaCertificado', '<=', $fecha_final);
+        }
+    }
+
+    public function calcularDiasAusente($fecha_inicial, $fecha_final)
+    {
+        if ( ( $this->fechaCertificado <= $fecha_inicial ) && ( Carbon::createFromFormat('Y-m-d',$this->fechaCertificado)->addDay($this->diasDeAusencia)   >= $fecha_final ))
+
+            return Carbon::createFromFormat('Y-m-d',$fecha_final)->diffInDays(Carbon::createFromFormat('Y-m-d',$fecha_inicial));
+
+        if ( ( $this->fechaCertificado >= $fecha_inicial ) && ( Carbon::createFromFormat('Y-m-d',$this->fechaCertificado)->addDay($this->diasDeAusencia)  <= $fecha_final ))
+            return Carbon::createFromFormat('Y-m-d',$this->fechaCertificado)->addDay($this->diasDeAusencia)->diffInDays(Carbon::createFromFormat('Y-m-d',$this->fechaCertificado));;
+
+        if ( ( $this->fechaCertificado < $fecha_inicial ) && ( Carbon::createFromFormat('Y-m-d',$this->fechaCertificado)->addDay($this->diasDeAusencia)  < $fecha_final ))
+            return Carbon::createFromFormat('Y-m-d',$this->fechaCertificado)>addDay($this->diasDeAusencia)->diffInDays(Carbon::createFromFormat('Y-m-d',$fecha_inicial));
+
+        return 0;
     }
 }

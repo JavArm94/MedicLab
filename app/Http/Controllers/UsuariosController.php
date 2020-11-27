@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+// use Carbon\Carbon;
 use App\Models\User;
 use App\Models\Medico;
 use App\Models\Usuario;
@@ -34,12 +35,25 @@ class UsuariosController extends Controller
        
        $certificados = Certificado::certificadosFiltro($request->idmedico, $request->estado, $request->fecha_inicial, $request->fecha_final);
 
-        
-        return view('reportes.certificadosXmedico.index')->with('medicos', $medicos)->with('medico', $medico)->with('certificados',$certificados);
+       
+        return view('reportes.certificadosXmedico.index',compact('medicos','medico','certificados','request'));
+        //->with('medicos', $medicos)->with('medico', $medico)->with('certificados',$certificados);
        
 
     }
 
+    
+    public function reporteausentismo(Request $request)
+    {
+        
+       
+       $certificados = Certificado::certificadosFiltroAusentismo( $request->fecha_inicial, $request->fecha_final);
+
+        return view('reportes.ausentismo.index',compact('certificados','request'));
+
+       
+
+    }
 
     /**
      * Display a listing of the resource.

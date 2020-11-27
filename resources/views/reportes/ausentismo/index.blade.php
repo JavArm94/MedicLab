@@ -15,33 +15,30 @@
  @section('content') 
  @include('navbar')
 
-        <h1 class="encabezado-tabla" style="text-align: center">Certificados emitidos por Médico </h1>
+        <h1 class="encabezado-tabla" style="text-align: center">Reporte de Ausentimo</h1>
     
        <div class="tabla-container">
             <div class="clearfix">
-            @include('reportes.certificadosXmedico.filtro')
+            @include('reportes.ausentismo.filtro')
           </div>
 
             <table style="width:100%" id="certificados-table" t>
                 <thead> 
                     <tr>
-                        <th>Titular</th>
-                        <th>Fecha</th>
-                        <th>Patología</th>
-                        <th>Médico</th>
-                        <th>Días de ausencia</th>
-                        <th>Estado</th>
+                        <th>Legajo</th>
+                        <th>Apellido</th>
+                        <th>Nombres</th>
+                        <th>Ausencias</th>
                     </tr>
                 </thead>
                 <tbody> 
                 @foreach($certificados as $certificado)
                     <tr>
-                        <td> {{ $certificado->usuario->nombreUsuario .' '. $certificado->usuario->apellido}}</td> 
-                        <td> {{ Carbon::parse($certificado->fechaCertificado)->format('d-m-Y') }}</td>
-                        <td> {{ $certificado->patologia->nombrePatologia }} </td> 
-                        <td> {{ $certificado->medico->apellidoNombres }} </td> 
-                        <td> {{ $certificado->diasDeAusencia }}</td>
-                        <td> {{ $certificado->estadoCertificado }}</td>
+                        <td> {{ $certificado->usuario->legajo }} </td>
+                        <td> {{ $certificado->usuario->apellido}} </td> 
+                        <td> {{ $certificado->usuario->nombreUsuario }} </td> 
+                        {{-- <td> {{ Carbon::parse('2020-11-01')->format('Y-m-d') }} </td>  --}}
+                        <td> {{ $certificado->calcularDiasAusente('2020-11-01','2020-11-25') }}</td>
                     </tr>
                 @endforeach
                 </tbody>

@@ -55,7 +55,9 @@ label {
     font-size: 24px;
 }
 
-.button {
+
+
+button {
     background: #4d4a62;
     border: 0.5px solid #4d4a62;
     box-sizing: border-box;
@@ -79,7 +81,7 @@ input {
     font-weight: 400;
     color: #4d4a62;
     outline: none;
-    width: 437px;
+    width: 400px;
     margin-top: 8px;
     height: 40px;
 }
