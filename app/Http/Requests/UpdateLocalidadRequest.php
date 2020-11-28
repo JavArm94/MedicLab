@@ -2,8 +2,10 @@
 
 namespace App\Http\Requests;
 
-use Illuminate\Foundation\Http\FormRequest;
 use App\Models\Localidad;
+
+use Illuminate\Validation\Rule;
+use Illuminate\Foundation\Http\FormRequest;
 
 class UpdateLocalidadRequest extends FormRequest
 {
@@ -26,7 +28,7 @@ class UpdateLocalidadRequest extends FormRequest
     public function rules()
     {
         $rules = Localidad::$rules;
-        
+         
         return $rules;
     }
 }

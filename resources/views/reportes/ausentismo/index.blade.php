@@ -37,6 +37,7 @@
                         <td> {{ $certificado->usuario->legajo }} </td>
                         <td> {{ $certificado->usuario->apellido}} </td> 
                         <td> {{ $certificado->usuario->nombreUsuario }} </td> 
+                        {{-- <td> {{ $certificado->medico->doctorCertificante }} </td>  --}}
                         {{-- <td> {{ Carbon::parse('2020-11-01')->format('Y-m-d') }} </td>  --}}
                         <td> {{ $certificado->calcularDiasAusente('2020-11-01','2020-11-25') }}</td>
                     </tr>

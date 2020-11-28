@@ -25,16 +25,9 @@
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.7.14/css/bootstrap-datetimepicker.min.css">
 
-    <link href="{{ asset('plugins/flatpickr/flatpickr.css') }}" rel="stylesheet" type="text/css">
-    <link href="{{ asset('plugins/flatpickr/material_red.css') }}" rel="stylesheet" type="text/css">
-    <link href="{{ asset('assets/css/elements/color_library.css') }}" rel="stylesheet" type="text/css" />
-    <link href="{{ asset('assets/css/users/user-profile.css') }}" rel="stylesheet" type="text/css" />
-
-
-
     @yield('css')
     <link rel="stylesheet" href="{{ asset('css/login.css')}}">
-    @livewireStyles
+    !-->
 </head>
 
 <body class="skin-blue sidebar-mini">
@@ -48,7 +41,55 @@
                 <b>MedicLab</b>
             </a>
 
- 
+            <!-- Header Navbar -->
+            <nav class="navbar navbar-static-top" role="navigation">
+                <!-- Sidebar toggle button-->
+                <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
+                    <span class="sr-only">Toggle navigation</span>
+                </a>
+                <!-- Navbar Right Menu -->
+                <div class="navbar-custom-menu">
+                    <ul class="nav navbar-nav">
+                        <!-- User Account Menu -->
+                        <li class="dropdown user user-menu">
+                            <!-- Menu Toggle Button -->
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                <!-- The user image in the navbar-->
+                                <img src="http://infyom.com/images/logo/blue_logo_150x150.jpg"
+                                     class="user-image" alt="User Image"/>
+                                <!-- hidden-xs hides the username on small devices so only the image appears. -->
+                                <span class="hidden-xs">{{ Auth::user()->name }}</span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <!-- The user image in the menu -->
+                                <li class="user-header">
+                                    <img src="http://infyom.com/images/logo/blue_logo_150x150.jpg"
+                                         class="img-circle" alt="User Image"/>
+                                    <p>
+                                        {{ Auth::user()->name }}
+                                        <small>Registrado desde {{ Auth::user()->created_at->format('M. Y') }}</small>
+                                    </p>
+                                </li>
+                                <!-- Menu Footer-->
+                                <li class="user-footer">
+                                    <div class="pull-left">
+                                        <a href="#" class="btn btn-default btn-flat">Perfil</a>
+                                    </div>
+                                    <div class="pull-right">
+                                        <a href="{{ url('/logout') }}" class="btn btn-default btn-flat"
+                                            onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                            Sign out
+                                        </a>
+                                        <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
+                                            @csrf
+                                        </form>
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
         </header>
 
         <!-- Left side column. contains the logo and sidebar -->
@@ -60,7 +101,7 @@
 
         <!-- Main Footer -->
         <footer class="main-footer" style="max-height: 100px;text-align: center">
-            <strong>Copyright © 2020 <a href="#">MedicLab</a>.</strong> Todos los derechos reservados.
+            <strong>Copyright © 2020 <a href="#">Compañía</a>.</strong> Todos los derechos reservados.
         </footer>
 
     </div>
@@ -124,39 +165,5 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.5/js/select2.min.js"></script>
 
     @stack('scripts')
-    
-
-    <script src="{{ asset('assets/js/custom.js') }}"></script>
-    <script src="{{ asset('assets/js/toastr.min.js') }}"></script>
-    <script src="{{ asset('plugins/notification/snackbar/snackbar.min.js') }}"></script>
-    <script src="{{ asset('plugins/flatpickr/flatpickr.js') }}"></script>
-    <script src="{{ asset('plugins/flatpickr/flatpickr_es.js') }}"></script>
-    
-    
-    <script>
-        $(document).ready(function() {
-            App.init();
-            //OLD WAY
-            /*
-            $(".flatpickr").flatpickr({
-                enableTime: false,
-                dateFormat: "d-m-Y",
-                'locale': 'es'
-            });
-            */
-        });
-        //NEW WAY
-        $(document).on("focus", ".flatpickr", function() {
-           $(this).flatpickr({
-            enableTime: false,
-            dateFormat: "d-m-Y",
-            'locale': 'es'
-        });
-    
-       })
-    </script>
-
- @livewireScripts 
-
 </body>
 </html>

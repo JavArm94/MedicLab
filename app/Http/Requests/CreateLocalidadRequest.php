@@ -2,8 +2,9 @@
 
 namespace App\Http\Requests;
 
-use Illuminate\Foundation\Http\FormRequest;
 use App\Models\Localidad;
+use Illuminate\Validation\Rule;
+use Illuminate\Foundation\Http\FormRequest;
 
 class CreateLocalidadRequest extends FormRequest
 {
@@ -23,8 +24,9 @@ class CreateLocalidadRequest extends FormRequest
      *
      * @return array
      */
-    public function rules()
+    public function rules(Request $request)
     {
-        return Localidad::$rules;
+
+        return  Localidad::$rules;
     }
 }

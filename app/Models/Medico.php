@@ -61,6 +61,12 @@ class Medico extends Model
     {
         return $this->apellido . ', ' . $this->nombres;
     }
+
+    public function getDoctorCertificanteAttribute()
+    {
+        $separador = ',';
+        return $this->apellido . $separador . $this->nombres;
+    }
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      **/
